@@ -1,7 +1,6 @@
 /* NewbBlox - Main
  *
  * Author: Aramande <aramande@gmail.com>
- *
  * Created: 16:48:49 13 May 2009
  *
  * This game is free software; you can redistribute it and/or modify
