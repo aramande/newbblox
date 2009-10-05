@@ -1,6 +1,6 @@
 /* NewbBlox - Debugging 
  *
- * Author: Aramande <aramande@gmail.com>
+ * Author: Aramande <aramande@hackular.com>
  *
  * Created: 15:54:03 14 May 2009
  *

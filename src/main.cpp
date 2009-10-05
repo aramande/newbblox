@@ -1,6 +1,6 @@
 /* NewbBlox - Main
  *
- * Author: Aramande <aramande@gmail.com>
+ * Author: Aramande <aramande@hackular.com>
  *
  * Created: 16:48:49 13 May 2009
  *

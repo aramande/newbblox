@@ -1,7 +1,7 @@
 
 /* NewbBlox - Random Number Generator 
  *
- * Author: Aramande <aramande@gmail.com>
+ * Author: Aramande <aramande@hackular.com>
  *
  * Created: 13:41:18 16 May 2009
  *

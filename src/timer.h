@@ -1,6 +1,6 @@
 /* NewbBlox - SDL Timer 
  *
- * Author: Aramande <aramande@gmail.com>
+ * Author: Aramande <aramande@hackular.com>
  *
  * Created: 20:37:42 15 May 2009
  *

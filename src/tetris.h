@@ -1,6 +1,6 @@
 /* NewbBlox - Grafical Tetris Interface
  *
- * Author: Aramande <aramande@gmail.com>
+ * Author: Aramande <aramande@hackular.com>
  *
  * Created: 16:15:32 13 May 2009
  *

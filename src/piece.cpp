@@ -1,6 +1,6 @@
 /* NewbBlox - Tetris Piece 
  *
- * Author: Aramande <aramande@gmail.com>
+ * Author: Aramande <aramande@hackular.com>
  *
  * Created: 17:19:34 13 May 2009
  *

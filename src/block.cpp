@@ -1,6 +1,6 @@
 /* NewbBlox - Block Sprite
  *
- * Author: Aramande <aramande@gmail.com>
+ * Author: Aramande <aramande@hackular.com>
  *
  * Created: 01:27:08 13 May 2009
  *
