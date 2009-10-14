@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.63])
-AC_INIT([newbblox], [0.9], [aramande@gmail.com],  [newbblox])
+AC_INIT([newbblox], [1.0.1], [aramande@gmail.com],  [newbblox])
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 AM_CONFIG_HEADER([config.h])
 
