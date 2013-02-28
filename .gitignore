@@ -9,3 +9,8 @@ configure.scan
 Makefile
 stamp-h1
 newbblox
+install-sh
+missing
+src/.deps/*
+src/newbblox
+*.swp
