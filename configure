@@ -647,13 +647,13 @@ AM_CXXFLAGS
 DATA_FILES
 SDL_LIBS
 SDL_CFLAGS
-SDL_CONFIG
 am__fastdepCC_FALSE
 am__fastdepCC_TRUE
 CCDEPMODE
 ac_ct_CC
 CFLAGS
 CC
+SDL_CONFIG
 am__fastdepCXX_FALSE
 am__fastdepCXX_TRUE
 CXXDEPMODE
@@ -3248,7 +3248,25 @@ else
 fi
 
 
+if test "x${debug}" = "xyes"; then
+  AM_CXXFLAGS="$AM_CXXFLAGS -g -DDEBUG"
+  { $as_echo "$as_me:$LINENO: result: Debug mode initiated" >&5
+$as_echo "Debug mode initiated" >&6; }
+fi
+
+if test "x${warning}" = "xno"; then
+  { $as_echo "$as_me:$LINENO: result: Warnings deactivated" >&5
+$as_echo "Warnings deactivated" >&6; }
+else
+  AM_CXXFLAGS="$AM_CXXFLAGS -DWARN"
+  { $as_echo "$as_me:$LINENO: result: Warnings activated" >&5
+$as_echo "Warnings activated" >&6; }
+fi
+
+AM_CXXFLAGS="$AM_CXXFLAGS -DDATADIR=\"${datadir}\""
+
 # Checks for libraries.
+SDL_VERSION=1.2.13
 ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
 ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
@@ -4042,190 +4060,6 @@ fi
 
 
 
-{ $as_echo "$as_me:$LINENO: checking for TTF_OpenFont in -lSDL_ttf" >&5
-$as_echo_n "checking for TTF_OpenFont in -lSDL_ttf... " >&6; }
-if test "${ac_cv_lib_SDL_ttf_TTF_OpenFont+set}" = set; then
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lSDL_ttf  $LIBS"
-cat >conftest.$ac_ext <<_ACEOF
-/* confdefs.h.  */
-_ACEOF
-cat confdefs.h >>conftest.$ac_ext
-cat >>conftest.$ac_ext <<_ACEOF
-/* end confdefs.h.  */
-
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char TTF_OpenFont ();
-int
-main ()
-{
-return TTF_OpenFont ();
-  ;
-  return 0;
-}
-_ACEOF
-rm -f conftest.$ac_objext conftest$ac_exeext
-if { (ac_try="$ac_link"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
-$as_echo "$ac_try_echo") >&5
-  (eval "$ac_link") 2>conftest.er1
-  ac_status=$?
-  grep -v '^ *+' conftest.er1 >conftest.err
-  rm -f conftest.er1
-  cat conftest.err >&5
-  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
-  (exit $ac_status); } && {
-	 test -z "$ac_c_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest$ac_exeext && {
-	 test "$cross_compiling" = yes ||
-	 $as_test_x conftest$ac_exeext
-       }; then
-  ac_cv_lib_SDL_ttf_TTF_OpenFont=yes
-else
-  $as_echo "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
-
-	ac_cv_lib_SDL_ttf_TTF_OpenFont=no
-fi
-
-rm -rf conftest.dSYM
-rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
-      conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:$LINENO: result: $ac_cv_lib_SDL_ttf_TTF_OpenFont" >&5
-$as_echo "$ac_cv_lib_SDL_ttf_TTF_OpenFont" >&6; }
-if test "x$ac_cv_lib_SDL_ttf_TTF_OpenFont" = x""yes; then
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_LIBSDL_TTF 1
-_ACEOF
-
-  LIBS="-lSDL_ttf $LIBS"
-
-else
-  check_sdl_ttf="no"
-fi
-
-
-{ $as_echo "$as_me:$LINENO: checking for IMG_Load in -lSDL_image" >&5
-$as_echo_n "checking for IMG_Load in -lSDL_image... " >&6; }
-if test "${ac_cv_lib_SDL_image_IMG_Load+set}" = set; then
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lSDL_image  $LIBS"
-cat >conftest.$ac_ext <<_ACEOF
-/* confdefs.h.  */
-_ACEOF
-cat confdefs.h >>conftest.$ac_ext
-cat >>conftest.$ac_ext <<_ACEOF
-/* end confdefs.h.  */
-
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char IMG_Load ();
-int
-main ()
-{
-return IMG_Load ();
-  ;
-  return 0;
-}
-_ACEOF
-rm -f conftest.$ac_objext conftest$ac_exeext
-if { (ac_try="$ac_link"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
-$as_echo "$ac_try_echo") >&5
-  (eval "$ac_link") 2>conftest.er1
-  ac_status=$?
-  grep -v '^ *+' conftest.er1 >conftest.err
-  rm -f conftest.er1
-  cat conftest.err >&5
-  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
-  (exit $ac_status); } && {
-	 test -z "$ac_c_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest$ac_exeext && {
-	 test "$cross_compiling" = yes ||
-	 $as_test_x conftest$ac_exeext
-       }; then
-  ac_cv_lib_SDL_image_IMG_Load=yes
-else
-  $as_echo "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
-
-	ac_cv_lib_SDL_image_IMG_Load=no
-fi
-
-rm -rf conftest.dSYM
-rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
-      conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:$LINENO: result: $ac_cv_lib_SDL_image_IMG_Load" >&5
-$as_echo "$ac_cv_lib_SDL_image_IMG_Load" >&6; }
-if test "x$ac_cv_lib_SDL_image_IMG_Load" = x""yes; then
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_LIBSDL_IMAGE 1
-_ACEOF
-
-  LIBS="-lSDL_image $LIBS"
-
-else
-  check_sdl_image="no"
-fi
-
-
-if test x${check_sdl_ttf} = xno; then
-       { { $as_echo "$as_me:$LINENO: error: ERROR: SDL_ttf library required" >&5
-$as_echo "$as_me: error: ERROR: SDL_ttf library required" >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test x${check_sdl_image} = xno; then
-       { { $as_echo "$as_me:$LINENO: error: ERROR: SDL_image library required" >&5
-$as_echo "$as_me: error: ERROR: SDL_image library required" >&2;}
-   { (exit 1); exit 1; }; }
-fi
-if test "x${debug}" = "xyes"; then
-  AM_CXXFLAGS="$AM_CXXFLAGS -g -DDEBUG"
-  { $as_echo "$as_me:$LINENO: result: Debug mode initiated" >&5
-$as_echo "Debug mode initiated" >&6; }
-fi
-
-if test "x${warning}" = "xno"; then
-  { $as_echo "$as_me:$LINENO: result: Warnings deactivated" >&5
-$as_echo "Warnings deactivated" >&6; }
-else
-  AM_CXXFLAGS="$AM_CXXFLAGS -DWARN"
-  { $as_echo "$as_me:$LINENO: result: Warnings activated" >&5
-$as_echo "Warnings activated" >&6; }
-fi
-
-AM_CXXFLAGS="$AM_CXXFLAGS -DDATADIR=\"${datadir}\""
-
-# Setting flags
-SDL_VERSION=1.2.13
-
 # Check whether --with-sdl-prefix was given.
 if test "${with_sdl_prefix+set}" = set; then
   withval=$with_sdl_prefix; sdl_prefix="$withval"
@@ -4541,6 +4375,171 @@ $as_echo "$as_me: error: *** SDL version $SDL_VERSION not found!" >&2;}
 
   rm -f conf.sdltest
 
+
+{ $as_echo "$as_me:$LINENO: checking for TTF_OpenFont in -lSDL_ttf" >&5
+$as_echo_n "checking for TTF_OpenFont in -lSDL_ttf... " >&6; }
+if test "${ac_cv_lib_SDL_ttf_TTF_OpenFont+set}" = set; then
+  $as_echo_n "(cached) " >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lSDL_ttf  $LIBS"
+cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.  */
+#ifdef __cplusplus
+extern "C"
+#endif
+char TTF_OpenFont ();
+int
+main ()
+{
+return TTF_OpenFont ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext && {
+	 test "$cross_compiling" = yes ||
+	 $as_test_x conftest$ac_exeext
+       }; then
+  ac_cv_lib_SDL_ttf_TTF_OpenFont=yes
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_lib_SDL_ttf_TTF_OpenFont=no
+fi
+
+rm -rf conftest.dSYM
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ $as_echo "$as_me:$LINENO: result: $ac_cv_lib_SDL_ttf_TTF_OpenFont" >&5
+$as_echo "$ac_cv_lib_SDL_ttf_TTF_OpenFont" >&6; }
+if test "x$ac_cv_lib_SDL_ttf_TTF_OpenFont" = x""yes; then
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBSDL_TTF 1
+_ACEOF
+
+  LIBS="-lSDL_ttf $LIBS"
+
+else
+  check_sdl_ttf="no"
+fi
+
+
+{ $as_echo "$as_me:$LINENO: checking for IMG_Load in -lSDL_image" >&5
+$as_echo_n "checking for IMG_Load in -lSDL_image... " >&6; }
+if test "${ac_cv_lib_SDL_image_IMG_Load+set}" = set; then
+  $as_echo_n "(cached) " >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lSDL_image  $LIBS"
+cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.  */
+#ifdef __cplusplus
+extern "C"
+#endif
+char IMG_Load ();
+int
+main ()
+{
+return IMG_Load ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext && {
+	 test "$cross_compiling" = yes ||
+	 $as_test_x conftest$ac_exeext
+       }; then
+  ac_cv_lib_SDL_image_IMG_Load=yes
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_lib_SDL_image_IMG_Load=no
+fi
+
+rm -rf conftest.dSYM
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ $as_echo "$as_me:$LINENO: result: $ac_cv_lib_SDL_image_IMG_Load" >&5
+$as_echo "$ac_cv_lib_SDL_image_IMG_Load" >&6; }
+if test "x$ac_cv_lib_SDL_image_IMG_Load" = x""yes; then
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBSDL_IMAGE 1
+_ACEOF
+
+  LIBS="-lSDL_image $LIBS"
+
+else
+  check_sdl_image="no"
+fi
+
+
+if test x${check_sdl_ttf} = xno; then
+       { { $as_echo "$as_me:$LINENO: error: ERROR: SDL_ttf library required" >&5
+$as_echo "$as_me: error: ERROR: SDL_ttf library required" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test x${check_sdl_image} = xno; then
+       { { $as_echo "$as_me:$LINENO: error: ERROR: SDL_image library required" >&5
+$as_echo "$as_me: error: ERROR: SDL_image library required" >&2;}
+   { (exit 1); exit 1; }; }
+fi
 
 AM_CXXFLAGS="$AM_CXXFLAGS $SDL_CFLAGS"
 AM_LDFLAGS="$AM_LDFLAGS $SDL_LIBS"
